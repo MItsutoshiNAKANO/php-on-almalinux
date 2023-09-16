@@ -1,0 +1,14 @@
+- name: PHP sample
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Install MariaDB
+      ansible.builtin.dnf:
+        name: mariadb
+        state: present
+      become: yes
+    - name: Install PHP
+      ansible.builtin.dnf:
+        name: php
+        state: present
+      become: yes
