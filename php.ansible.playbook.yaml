@@ -12,3 +12,9 @@
         name: php
         state: present
       become: yes
+    - name: Install Composer PHP Depndency Manager
+      ansible.builtin.dnf:
+        name: composer
+        state: present
+      become: yes
+
