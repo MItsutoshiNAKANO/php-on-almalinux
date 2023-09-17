@@ -4,7 +4,7 @@ $script = <<-SCRIPT
   sudo dnf -y upgrade
   sudo dnf -y install gcc kernel-devel kernel-headers dkms make bzip2 perl
 
-  sudo dnf -y install ansible-core ansible-collection-redhat-rhel_mgmt
+  sudo dnf -y install ansible-core
   ansible-playbook /vagrant/php.ansible.playbook.yaml
 SCRIPT
 
