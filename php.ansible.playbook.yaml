@@ -26,3 +26,13 @@
       ansible.builtin.dnf:
         name: npm
         state: present
+    - name: Start MariaDB
+      ansible.builtin.systemd:
+        name: mariadb
+        enabled: yes
+        state: started
+    - name: Start httpd
+      ansible.builtin.systemd:
+        name: httpd
+        enabled: yes
+        state: started
