@@ -2,28 +2,27 @@
   hosts: localhost
   become: yes
   tasks:
+    - name: MariaDB server
+      ansible.builtin.dnf:
+        name: mariadb-server
+        state: present
     - name: Install MariaDB
       ansible.builtin.dnf:
         name: mariadb
         state: present
-      become: yes
     - name: Install PHP
       ansible.builtin.dnf:
         name: php
         state: present
-      become: yes
     - name: Install Composer PHP Depndency Manager
       ansible.builtin.dnf:
         name: composer
         state: present
-      become: yes
     - name: Node.js
       ansible.builtin.dnf:
         name: nodejs
         state: present
-      become: yes
     - name: npm
       ansible.builtin.dnf:
         name: npm
         state: present
-      become: yes
