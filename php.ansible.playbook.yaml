@@ -1,4 +1,4 @@
-- name: PHP sample
+- name: PHP 8.2 sample # @see https://tecadmin.net/how-to-install-php-on-centos-9/
   hosts: localhost
   become: yes
   tasks:
@@ -10,6 +10,19 @@
       ansible.builtin.dnf:
         name: mariadb
         state: present
+    - name: Install EPEL
+      ansible.builtin.dnf:
+        name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+        state: present
+    - name: Install Remi
+      ansible.builtin.dnf:
+        name: https://rpms.remirepo.net/enterprise/remi-release-9.rpm
+        state: present
+        disable_gpg_check: true
+    - name: Use PHP Remi 8.2
+      command: dnf -y module enable php:remi-8.2
+    - name: Use Node.js 18
+      command: dnf -y module enable nodejs
     - name: Install PHP
       ansible.builtin.dnf:
         name: php
@@ -29,10 +42,5 @@
     - name: Start MariaDB
       ansible.builtin.systemd:
         name: mariadb
-        enabled: yes
-        state: started
-    - name: Start httpd
-      ansible.builtin.systemd:
-        name: httpd
         enabled: yes
         state: started
