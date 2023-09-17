@@ -11,5 +11,6 @@ SCRIPT
 Vagrant.configure("2") do |config|
   config.vm.box = "almalinux/9"
   config.vbguest.auto_update = true
+  config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.provision "shell", inline: $script
 end
