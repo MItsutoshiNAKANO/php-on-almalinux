@@ -10,7 +10,9 @@ SCRIPT
 
 Vagrant.configure("2") do |config|
   config.vm.box = "almalinux/9"
-  config.vbguest.auto_update = true
+  if Vagrant.has_plugin?("vagrant-vbguest")
+    config.vbguest.auto_update = true
+  end
   config.vm.network "forwarded_port", guest: 8000, host: 8000
   config.vm.provision "shell", inline: $script
 end
