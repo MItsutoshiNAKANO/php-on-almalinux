@@ -21,3 +21,7 @@
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+### The laravel-sample is managed by another repository.
+
+laravel-sample/
