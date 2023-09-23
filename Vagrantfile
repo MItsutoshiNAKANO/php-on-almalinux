@@ -10,6 +10,11 @@ SCRIPT
 
 Vagrant.configure("2") do |config|
   config.vm.box = "almalinux/9"
+  # @see https://developer.hashicorp.com/vagrant/docs/providers/virtualbox/configuration#vboxmanage-customizations
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 4096
+    v.cpus = 2
+  end
   if Vagrant.has_plugin?("vagrant-vbguest")
     config.vbguest.auto_update = true
   end
