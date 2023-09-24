@@ -1,3 +1,4 @@
 #! /bin/bash -eux
 
-composer create-project laravel/laravel laravel-sample
+project=${1-'laravel-sample'}
+composer create-project laravel/laravel "$project"
