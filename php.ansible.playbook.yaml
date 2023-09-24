@@ -44,3 +44,5 @@
         name: mariadb
         enabled: yes
         state: started
+    - name: Create Laravel Database
+      ansible.builtin.shell: mysql </vagrant/laravel-db.sql
