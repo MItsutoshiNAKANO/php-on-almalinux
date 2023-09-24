@@ -31,6 +31,10 @@
       ansible.builtin.dnf:
         name: composer
         state: present
+    - name: Install PHP MySQL module
+      ansible.builtin.dnf:
+        name: php-mysqlnd
+        state: present
     - name: Node.js
       ansible.builtin.dnf:
         name: nodejs
